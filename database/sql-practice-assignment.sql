@@ -5,6 +5,11 @@
 
 INSERT your SQL here :)
 
+SELECT * FROM "movies"
+JOIN "movies_genres" ON "movies"."id"="movies_genres"."movie_id"
+JOIN "genres" on "movies_genres"."genre_id"="genres"."id"
+WHERE "genres"."name"='Adventure';
+
 -- 2. Get the count of movies that have each genre.  
 --  Make sure you get back all the genres!
 
