@@ -13,8 +13,8 @@ WHERE "genres"."name"='Adventure';
 -- 2. Get the count of movies that have each genre.  
 --  Make sure you get back all the genres!
 SELECT "genres"."name", count("movies"."id") FROM "genres"
-JOIN "movies_genres" on "movies_genres"."genre_id"="genres"."id"
-JOIN "movies" ON "movies"."id"="movies_genres"."movie_id"
+LEFT JOIN "movies_genres" on "movies_genres"."genre_id"="genres"."id"
+LEFT JOIN "movies" ON "movies"."id"="movies_genres"."movie_id"
 GROUP BY "genres"."name";
 
 Example Result:
@@ -31,12 +31,13 @@ Example Result:
 ---------------------------------
 
 
-
 -- 3. Add the genre "Superhero" to "Star Wars".
-
+INSERT INTO "movies_genres" VALUES (27,10,13);
 
 
 -- 4. Remove the "Comedy" genre from "Titanic"
+DELETE FROM "movies_genres" WHERE "id"='21';
+
 
 
 
