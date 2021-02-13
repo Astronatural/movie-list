@@ -5,13 +5,13 @@ The following database practice is intended to help you prepare for your solo pr
 ---
 ## Part 1: Create an ERD
 
-Make an ERD of the tables we have in `database.sql`
+X Make an ERD of the tables we have in `database.sql`
 
-Add an image of your diagram or a link to your diagram to the `database` folder inside this repo. If a link, we will need access to whatever app you are using.
+X Add an image of your diagram or a link to your diagram to the `database` folder inside this repo. If a link, we will need access to whatever app you are using.
 
 You may draw this on paper, draw it with a drawing app, or use a DB planning tool such as: 
 
-- https://www.dbdesigner.net/
+X - https://www.dbdesigner.net/
 - https://sqldbm.com/Home/
 
 ---
@@ -30,4 +30,4 @@ Then, run the create/starter SQL for tables and datas in the `/database/database
 
 See `sql-practice-assignment.sql` file.
 
-Supply the SQL that answers each question in that file. We're looking for the actual SQL (do not use $1 for placeholders). There may be multiple ways to get the results.
+X  Supply the SQL that answers each question in that file. We're looking for the actual SQL (do not use $1 for placeholders). There may be multiple ways to get the results.
