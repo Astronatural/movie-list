@@ -1,33 +1,37 @@
-import {HashRouter as Router, Route} from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './App.css';
 import MovieList from '../MovieList/MovieList';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import AddMovie from '../AddMovie/AddMovie';
-import NavBar from '../NavBar/NavBar';
 
 
 function App() {
   return (
     <div className="App">
+      <Router>
       <header>
-        <NavBar/>
+        {/* <NavBar /> */}
+          <h1><Link to='/'>Here are some Movies!</Link></h1>
+        <h2>Click on a poster to learn more about it.</h2>
+        <h3><Link to='/addmovie'>Add a movie by clicking here!</Link></h3>
       </header>
-      <Router>        
-        <Route path="/" exact>
-          <MovieList />
-        </Route>
-        
-        {/* Details page */}
-        <Route path="/details" >
-          <MovieDetails />
-        </Route>
+      {/* <Router> */}
+        <Switch>
+          <Route path="/" exact>
+            <MovieList />
+          </Route>
+
+          {/* Details page */}
+          <Route path="/details" >
+            <MovieDetails />
+          </Route>
 
 
-        {/* Add Movie page */}
-        <Route path="/addmovie" >
-          <AddMovie />
-        </Route>
-
+          {/* Add Movie page */}
+          <Route path="/addmovie" >
+            <AddMovie />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
