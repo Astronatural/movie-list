@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './MovieList.css'
+import { useHistory} from 'react-router-dom';
+import './MovieList.css';
+
 
 function MovieList() {
+
+    // TODO wrap that image in a link to the movie details page.
+    // it should also grab that related ID so we can GET the details from the DB.
+
+    const history = useHistory();
 
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
@@ -10,6 +17,12 @@ function MovieList() {
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
+
+    function nextLink (e) {
+        // e.preventDefault();
+        console.log('link clicked');
+        history.push('/details');
+    };
 
     return (
         <main>
@@ -19,7 +32,7 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/>
+                            <button onClick={nextLink}> <img src={movie.poster} alt={movie.title} /></button>
                         </div>
                     );
                 })}

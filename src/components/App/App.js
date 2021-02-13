@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <Router>
       <header>
-        {/* <NavBar /> */}
           <h1><Link to='/'>Here are some Movies!</Link></h1>
         <h2>Click on a poster to learn more about it.</h2>
         <h3><Link to='/addmovie'>Add a movie by clicking here!</Link></h3>
