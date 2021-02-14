@@ -11,11 +11,14 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
-    yield teakEvery('FETCH-DETAILS', fetchDetails);
+    yield takeEvery('FETCH-DETAILS', fetchDetails);
+    yield takeEvery('FETCH-GENRES', fetchAllGenres);
 }
+
 
 function* fetchAllMovies() {
     // get all movies from the DB
@@ -26,12 +29,12 @@ function* fetchAllMovies() {
 
     } catch {
         console.log('get all error');
-    }
-        
+    }   
 }
 
+
 function* fetchDetails() {
-    // get details from the DB --> don't forget the reducer
+    // get details from the DB --> don't forget the reducer.  I don't know that i can use this anymore.
     try {
         const details = yield axios.get('/api/movie');
         console.log('get all:', details.data);
@@ -40,11 +43,24 @@ function* fetchDetails() {
     } catch {
         console.log('get all error');
     }
-
 }
+
+function* fetchAllGenres() {
+    // get all genres from the DB
+    try {
+        const genres = yield axios.get('/api/genre');
+        console.log('get all:', genres.data);
+        yield put({ type: 'SET_GENRES', payload: genres.data });
+
+    } catch {
+        console.log('get all error');
+    }
+}
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
+
 
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
@@ -56,6 +72,7 @@ const movies = (state = [], action) => {
     }
 }
 
+
 // Used to store the movie genres
 const genres = (state = [], action) => {
     switch (action.type) {
@@ -66,7 +83,8 @@ const genres = (state = [], action) => {
     }
 }
 
-// used to store movies+genres=totaldetails
+
+// used to store movies+genres=totaldetails.  Actually it porbably just has movies now.  
 const details = (state = [], action) => {
     switch (action.type) {
         case 'SET_DETAILS':
@@ -87,6 +105,7 @@ const storeInstance = createStore(
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
+
 
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);

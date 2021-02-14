@@ -19,7 +19,10 @@ function MovieList() {
     }, []);
 
     function nextLink (e) {
-        // e.preventDefault();
+         e.preventDefault();
+         let movieId = e.target.movie.id
+         dispatch({ type:'FETCH-DETAILS', payload: movieId});
+         console.log(movieId);
         console.log('link clicked');
         history.push('/details');
     };
