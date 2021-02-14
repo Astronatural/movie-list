@@ -50,7 +50,7 @@ X- TODO: Have a way to get to the Add Movie Page
 
 ### Details Page
 
-This should show all details **including ALL genres** for the selected movie. You will need to store this data in redux!
+X This should show all details **including ALL genres** for the selected movie. You will need to store this data in redux!
 
  > Hint : You can make a GET request for a specific movie. Remember `req.params` and `:id`?
 

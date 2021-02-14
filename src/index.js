@@ -47,12 +47,12 @@ function* fetchDetails(action) {
 
 function* fetchDetailGenres(action) {
     // get denre details from the DB.  Why is it going to the catch?
-    console.log(`FDG`, action.payload);
+    console.log(`FDG`, action.payload);  // is movie.id
     try {
-        const genDets = yield axios.get(`'/api/detail/${action.payload}`)
-        console.log(req.params['id']);
-        console.log('detail genres:', genDets);  
-        yield put({ type: 'GET_DETAILS', payload: action.payload }); // response.data || action.payload
+        const genDets = yield axios.get(`/api/detail/${action.payload}`)
+        console.log('detail genres:', genDets.data);  // 
+        //yield put({ type: 'GET_DETAILS', payload: action.payload });
+        yield put({ type: 'GET_DETAILS', payload: genDets.data }); // response.data || action.payload
     } catch {
         console.log('get all error');
     }
@@ -97,10 +97,21 @@ const genres = (state = [], action) => {
 }
 
 
-// used to store movies+genres=totaldetails.  This is the same as movies now.  
+// used to store selected movies details. 
 const details = (state = [], action) => {
     switch (action.type) {
         case 'SET_DETAILS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+// used to send out the selected movie's genres
+const genreDetails = (state = [], action) => {
+    switch (action.type) {
+        case 'GET_DETAILS':
+            console.log(action.payload);
             return action.payload;
         default:
             return state;
@@ -113,7 +124,8 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
-        details
+        details,
+        genreDetails
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

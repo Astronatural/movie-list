@@ -5,15 +5,15 @@ import { useHistory } from 'react-router-dom';
 
 function MovieDetails() {
     // the plan here is that we will have two GETs; one to get the movie details(by Id).
-    // and another to get the genres (by movie Id).
+    // and another to get the genreDetails (by movie Id).
 
     const history = useHistory();
     const dispatch = useDispatch();
     const reduxStore = useSelector(store => store);
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_GENRES' });
-    }, []);
+    // useEffect(() => {
+    //     dispatch({ type: 'FETCH_GENRES' });
+    // }, []);
 
     function nextLink(e) {
         history.push('/');
@@ -26,9 +26,9 @@ function MovieDetails() {
                     <h1>{reduxStore.details.title}</h1>
                     <img src={reduxStore.details.poster} />
                     <p>{reduxStore.details.description}</p>
-                   {reduxStore.genres.map(genres =>
-                       <div key={genres.id}>
-                   <p>{genres.name}</p>
+                   {reduxStore.genreDetails.map(genreDetails =>
+                       <div key={genreDetails.name}>
+                   <p>{genreDetails.name}</p>
                    </div>
                    )}
                     <button onClick={nextLink}>Back to List</button>

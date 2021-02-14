@@ -5,7 +5,8 @@ const pool = require('../modules/pool')
 
 // add Query? to get genres from selected movie.
 router.get(`/:id`, (req, res) => {  // /:id?
-    const movieId = req.params.movie.id
+    console.log(req.params.id);
+    const movieId = req.params.id //  req.params.movie.id
     const query = `SELECT "genres"."name" FROM "movies"
 LEFT JOIN "movies_genres" on "movies"."id"="movies_genres"."movie_id"
 LEFT JOIN "genres" ON "movies_genres"."genre_id"="genres"."id"
