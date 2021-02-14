@@ -21,6 +21,8 @@ function MovieList() {
     function nextLink (movie) {
        console.log(movie);
         dispatch({ type:'FETCH_DETAILS', payload: movie});
+        dispatch({ type: 'GENRES_DETAIL', payload: movie.id });
+        console.log(movie.id);
         console.log('link clicked');
         history.push('/details');
     };

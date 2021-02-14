@@ -46,12 +46,13 @@ function* fetchDetails(action) {
 }
 
 function* fetchDetailGenres(action) {
-    // get details from the DB --> don't forget the reducer.  I don't know that i can use this anymore.
+    // get denre details from the DB.  Why is it going to the catch?
+    console.log(`FDG`, action.payload);
     try {
-        const genDets = yield axios.get(`/api/detail/${id}`)
-        console.log('detail genres:', genDets.id);   // doublecheck
-        yield put({ type: 'GET_DETAILS', payload: action.payload });   // <-- leaving off here, did details server-side, need client-side.
-
+        const genDets = yield axios.get(`'/api/detail/${action.payload}`)
+        console.log(req.params['id']);
+        console.log('detail genres:', genDets);  
+        yield put({ type: 'GET_DETAILS', payload: action.payload }); // response.data || action.payload
     } catch {
         console.log('get all error');
     }
