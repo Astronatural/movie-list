@@ -17,6 +17,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_DETAILS', fetchDetails);
     yield takeEvery('FETCH_GENRES', fetchAllGenres);
+    yield takeEvery('GENRES_DETAIL', fetchDetailGenres);
 }
 
 
@@ -44,6 +45,17 @@ function* fetchDetails(action) {
     }
 }
 
+function* fetchDetailGenres(action) {
+    // get details from the DB --> don't forget the reducer.  I don't know that i can use this anymore.
+    try {
+        const genDets = yield axios.get(`/api/detail/${id}`)
+        console.log('detail genres:', genDets.id);   // doublecheck
+        yield put({ type: 'GET_DETAILS', payload: action.payload });   // <-- leaving off here, did details server-side, need client-side.
+
+    } catch {
+        console.log('get all error');
+    }
+}
 
 function* fetchAllGenres() {
     // get all genres from the DB
