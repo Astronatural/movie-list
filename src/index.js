@@ -15,8 +15,8 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
-    yield takeEvery('FETCH-DETAILS', fetchDetails);
-    yield takeEvery('FETCH-GENRES', fetchAllGenres);
+    yield takeEvery('FETCH_DETAILS', fetchDetails);
+    yield takeEvery('FETCH_GENRES', fetchAllGenres);
 }
 
 
@@ -24,7 +24,7 @@ function* fetchAllMovies() {
     // get all movies from the DB
     try {
         const movies = yield axios.get('/api/movie');
-        console.log('get all:', movies.data);
+        console.log('get movies:', movies.data);
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
     } catch {
@@ -33,23 +33,23 @@ function* fetchAllMovies() {
 }
 
 
-function* fetchDetails() {
+function* fetchDetails(action) {
     // get details from the DB --> don't forget the reducer.  I don't know that i can use this anymore.
     try {
-        const details = yield axios.get('/api/movie');
-        console.log('get all:', details.data);
-        yield put({ type: 'SET_DETAILS', payload: details.data });
+        console.log('get details:', action.payload);
+        yield put({ type: 'SET_DETAILS', payload: action.payload });
 
     } catch {
         console.log('get all error');
     }
 }
 
+
 function* fetchAllGenres() {
     // get all genres from the DB
     try {
         const genres = yield axios.get('/api/genre');
-        console.log('get all:', genres.data);
+        console.log('get genres:', genres.data);
         yield put({ type: 'SET_GENRES', payload: genres.data });
 
     } catch {
@@ -84,7 +84,7 @@ const genres = (state = [], action) => {
 }
 
 
-// used to store movies+genres=totaldetails.  Actually it porbably just has movies now.  
+// used to store movies+genres=totaldetails.  This is the same as movies now.  
 const details = (state = [], action) => {
     switch (action.type) {
         case 'SET_DETAILS':

@@ -18,11 +18,9 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    function nextLink (e) {
-         e.preventDefault();
-         let movieId = e.target.movie.id
-         dispatch({ type:'FETCH-DETAILS', payload: movieId});
-         console.log(movieId);
+    function nextLink (movie) {
+       console.log(movie);
+        dispatch({ type:'FETCH_DETAILS', payload: movie});
         console.log('link clicked');
         history.push('/details');
     };
@@ -33,9 +31,9 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <div key={movie.id} >
+                        <div key={movie.id} onClick={()=>nextLink(movie)} >
                             <h3>{movie.title}</h3>
-                            <button onClick={nextLink}> <img src={movie.poster} alt={movie.title} /></button>
+                             <img src={movie.poster} alt={movie.title} />
                         </div>
                     );
                 })}

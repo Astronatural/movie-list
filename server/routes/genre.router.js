@@ -3,9 +3,8 @@ const router = express.Router();
 const pool = require('../modules/pool')
 
 router.get('/', (req, res) => {
-  // Add query to get all genres  //maybe just try maping the whole list to test in movieDetails.
+  // Add query to get all genres, save for the addMovieForm
   const query = `SELECT * FROM "genres" ORDER BY "name" ASC`;
-  console.log(query);
   pool.query(query)
     .then(result => {
       res.send(result.rows);  // rows?
@@ -15,6 +14,9 @@ router.get('/', (req, res) => {
       res.sendStatus(500)
     })
 });
+
+// add Query? to get genres from selected movie.
+
 
 module.exports = router;
 

@@ -1,10 +1,13 @@
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 function MovieDetails() {
     // the plan here is that we will have two GETs; one to get the movie details(by Id).
     // and another to get the genres (by movie Id).
-    
+
+    const history = useHistory();
     const dispatch = useDispatch();
     const reduxStore = useSelector(store => store);
 
@@ -12,21 +15,24 @@ function MovieDetails() {
         dispatch({ type: 'FETCH_GENRES' });
     }, []);
 
+    function nextLink(e) {
+        history.push('/');
+    };
+
     return (
         <>
             <h2>Here are some details on that movie you clicked on.</h2>
-            {/* {reduxStore.details.map(details =>
-                <div key={details.id}>
-                    <h1>{details.title}</h1>
-                    <img src={details.url} />
-                    <p>{details.description}</p>
-                   {reduxStore.genres.map(details =>
-                   <p>genres.name</p>
+                <div>
+                    <h1>{reduxStore.details.title}</h1>
+                    <img src={reduxStore.details.poster} />
+                    <p>{reduxStore.details.description}</p>
+                   {reduxStore.genres.map(genres =>
+                       <div key={genres.id}>
+                   <p>{genres.name}</p>
+                   </div>
                    )}
-                    <button onClick={nextLink}>Cancel</button>
-                    <button onClick={submit}>Save Movie</button>
+                    <button onClick={nextLink}>Back to List</button>
                 </div>
-            )} */}
         </>
     )
 };
