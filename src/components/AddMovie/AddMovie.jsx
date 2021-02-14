@@ -9,6 +9,8 @@ function AddMovie() {
         // inputs for title, poster and description; drop-down menu for FULL genre list.
         // both buttons will end up sending the user back to '/'
         const dispatch = useDispatch();
+        const history = useHistory();
+        const reduxStore = useSelector(store => store);
 
 
         let [newFilm, setFilm] = useState({
@@ -33,6 +35,10 @@ function AddMovie() {
         useEffect(() => {
                 dispatch({ type: 'FETCH_GENRES' });
         }, []);
+
+        function nextLink() {
+                history.push('/');
+        };
 
         //<form onSubmit={addNewPlant}>
         //         <input type='text' value={newPlant.name} placeholder='Plant Name' onChange={(e) => setPlant({ ...newPlant, name: e.target.value })} />
@@ -62,13 +68,21 @@ function AddMovie() {
                                         name="addDesc"
                                         rows="8" cols="64"
                                         value={newFilm.description}
-                                        onChange={(e) => setFilm({ ...newFilm, description: e.target.value })}
-                                >
+                                        onChange={(e) => setFilm({ ...newFilm, description: e.target.value })}>
                                         Add a description of the movie you want to add.
                                         </textarea>
+                                <div className='dropdown'>
+                                        <button onClick={() => document.getElementById("myDropdown").classList.toggle("show")} 
+                                        className="dropbtn">Select Genre</button>
+                                        {reduxStore.genres.map(genres =>
+                                        <div id="myDropdown" className="dropdown-content" key={genres.name}>
+                                                <a >{genres.name}</a>
+                                        </div>
+                                        )}
+                                </div>
 
-                                <button>Cancel/Back</button>
-                                <button>Save New Movie</button>
+                                <button onClick={nextLink}>Cancel/Back</button>
+                                <button type="submit" value='Save New Movie'>Save New Movie</button>
                         </form>
                 </>
         )
