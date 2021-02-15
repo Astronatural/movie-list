@@ -62,15 +62,15 @@ X - TODO: The details page should have a `Back to List` button, which should bri
 
 This should show:
 
-- an input field (for the movie title)
-- an input field (for the movie poster image URL))
-- a textarea (for the movie description)
-- a dropdown (for the genres)
+X - an input field (for the movie title)
+X - an input field (for the movie poster image URL))
+X - a textarea (for the movie description)
+X - a dropdown (for the genres)
 
 The Add Movie page should have the buttons:
 
-- `Cancel` button, which should bring the user to the Home/List Page
-- `Save` button, which should update the title and description in the database and bring the user to the Home/List Page (which now has the new movie)
+X - `Cancel` button, which should bring the user to the Home/List Page
+X - `Save` button, which should update the title and description in the database and bring the user to the Home/List Page (which now has the new movie)
 
 X **Base functionality does not require being able to select more than one genre for a new movie**
 
@@ -87,9 +87,9 @@ As one of your last projects, it's possible you will be sharing this with employ
 - [ ] Invest some time in styling it up!
     - [ ] Research cards for your movie posters on the list page
     - [ ] Research grids for your movie posters on the Movie List page
-- [ ] Commit your code frequently! You should have at 15+ commits on a project of this size. Use branches to help break down your features.
-- [ ] Comment your code.
-- [ ] Update this README to include a description of the project in your own words.
+- [X] Commit your code frequently! You should have at 15+ commits on a project of this size. Use branches to help break down your features.
+- [X] Comment your code.
+- [X] Update this README to include a description of the project in your own words.
 
 ---
 

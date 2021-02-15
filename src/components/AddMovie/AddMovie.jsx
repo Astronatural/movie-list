@@ -32,7 +32,7 @@ function AddMovie() {
                         description: '',
                         genre_id: '',   //  doesn't do nothing
                 });
-                // history.push('/');
+                history.push('/');
         }
 
         useEffect(() => {
