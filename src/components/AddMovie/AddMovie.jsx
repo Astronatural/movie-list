@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './AddMovie.css';
 
 
 function AddMovie() {
@@ -17,8 +18,9 @@ function AddMovie() {
                 title: '',
                 poster: '',
                 description: '',
-                genre: '',
+                genre_id: '',
         });
+
 
         const addNewFilm = event => {
                 event.preventDefault();
@@ -28,8 +30,9 @@ function AddMovie() {
                         title: '',
                         poster: '',
                         description: '',
-                        genre: '',   //  hmm?
+                        genre_id: '',   //  doesn't do nothing
                 });
+                // history.push('/');
         }
 
         useEffect(() => {
@@ -40,15 +43,11 @@ function AddMovie() {
                 history.push('/');
         };
 
-        //<form onSubmit={addNewPlant}>
-        //         <input type='text' value={newPlant.name} placeholder='Plant Name' onChange={(e) => setPlant({ ...newPlant, name: e.target.value })} />
-        //<input type='submit' value='Add New Plant' />
-
 
         return (
                 <>
                         <h3>Why not add a new movie to our database?</h3>
-                        <form onSubmit={addNewFilm}>
+                        <form onSubmit={addNewFilm} >
                                 <input
                                         value={newFilm.title}
                                         onChange={(e) => setFilm({ ...newFilm, title: e.target.value })}
@@ -71,23 +70,20 @@ function AddMovie() {
                                         onChange={(e) => setFilm({ ...newFilm, description: e.target.value })}>
                                         Add a description of the movie you want to add.
                                         </textarea>
-                                <div className='dropdown'>
-                                        <button onClick={() => document.getElementById("myDropdown").classList.toggle("show")} 
-                                        className="dropbtn">Select Genre</button>
-                                        {reduxStore.genres.map(genres =>
-                                        <div id="myDropdown" className="dropdown-content" key={genres.name}>
-                                                <a >{genres.name}</a>
-                                        </div>
-                                        )}
-                                </div>
+                                <label for="genres">Choose a genre:</label>
+                                <select value={newFilm.genre_id} name="genres" onChange={(e) => setFilm({ ...newFilm, genre_id: e.target.value })}>
+                                        {reduxStore.genres.map(genres => 
+                                        <option  value={genres.id} key={genres.id} 
+                                        >{genres.name}</option>
+                                        )} 
+                                </select>
 
-                                <button onClick={nextLink}>Cancel/Back</button>
-                                <button type="submit" value='Save New Movie'>Save New Movie</button>
+                                <button type="submit" value='submit'>Save New Movie</button>
                         </form>
+                        <button onClick={nextLink}>Cancel/Back</button>
                 </>
         )
-
-
 };
 
 export default AddMovie;
+
