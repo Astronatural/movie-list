@@ -18,22 +18,20 @@ What you want to do is scroll around the movie-list and see if something strikes
 Now you are faced with a heap of facts, straight from Wikipedia, about the movie you clicked on.  I bet you didn't know half of that.
 
 At anytime you can click on the text "Add a movie by clicking here!" to, guess what, go to a page where you too can enter a movie.
-To do this you will need 3-4 things; a title of the movie, a URL where the internet can find an image related to the movie (it's kinda set up to go with posters) then you want to go over to wikipedia and copy some stuff from the "summary" at the top of the page and post that in the description textarea.  After that click on "Choose a genre" to select a genre for the movie you are adding.  If you aren't sure just pick a random one.  I think some of the designers did...
+To do this you will need 3-4 things; a title of the movie, a URL where an image related to the movie can be found (it's kinda set up to go with posters) then you want to go over to wikipedia and copy some stuff from the "summary" at the top of the page and post that in the description textarea.  Feel free to invent your own description though.  After that click on "Choose a genre" to select a genre for the movie you are adding.  
 
 
 ## Built With
 
-In order of creation (I think, I did not research this at all):
-
-HTML
-CSS (technically)
-JavaScript (also, properly?, known as ECMAScript.  I think it's gone up to 11...)
-Node
-NODEMON
+HTML,
+CSS,
+JavaScript,
+React, 
+React-Redux, 
+Node, 
+NODEMON, 
 PostgreSQL
-React
-(is Axios it's own thing?)
-Redux
+
 
 Postico was used for SQL purposes.
 Postman was used for testing.
@@ -41,12 +39,12 @@ Postman was used for testing.
 
 ## License
 
-I mean, if you really want to use it, go ahead.   I am not going to pretend I own any of the images or related films.  I am not trying to be sued by Disney.
+If you really want to use this, go ahead.   I am not going to pretend I own any of the images or related films.  I am not trying to be sued by Disney.
 
 
 ## Acknowledgement
 
-This probably wouldn't have gotten even to the state it is in without the help of Cody.  He's a pretty cool guy!  Shout Out to Quinn too, hope your next Tafl game goes better?
+This probably wouldn't have gotten even to the state it is in without the help of Cody.  He's a pretty cool guy!  Shout Out to Quinn as well!
 
 I can't forget Blaine helping me through some tough points and helping me wrap my head around a brick wall or two...
 

@@ -30,7 +30,7 @@ function AddMovie() {
                         title: '',
                         poster: '',
                         description: '',
-                        genre_id: '',   //  doesn't do nothing
+                        genre_id: '',
                 });
                 history.push('/');
         }

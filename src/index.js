@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App.js';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-// Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
-// Import saga middleware
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
@@ -37,7 +35,7 @@ function* fetchAllMovies() {
 
 
 function* fetchDetails(action) {
-    // get details from the DB --> don't forget the reducer.  I don't know that i can use this anymore.
+    // get details from the DB
     try {
         console.log('get details:', action.payload);
         yield put({ type: 'SET_DETAILS', payload: action.payload });
@@ -48,13 +46,13 @@ function* fetchDetails(action) {
 }
 
 function* fetchDetailGenres(action) {
-    // get denre details from the DB.  Why is it going to the catch?
-    console.log(`FDG`, action.payload);  // is movie.id
+    // get denre details from the DB.
+    console.log(`FDG`, action.payload);
     try {
         const genDets = yield axios.get(`/api/detail/${action.payload}`)
         console.log('detail genres:', genDets.data);  // 
         //yield put({ type: 'GET_DETAILS', payload: action.payload });
-        yield put({ type: 'GET_DETAILS', payload: genDets.data }); // response.data || action.payload
+        yield put({ type: 'GET_DETAILS', payload: genDets.data });
     } catch {
         console.log('get all error');
     }
