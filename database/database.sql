@@ -1,4 +1,4 @@
--- CREATE DATABASE "saga_movies_weekend"
+-- CREATE DATABASE "MovieList"
 
 
 CREATE TABLE "movies" (

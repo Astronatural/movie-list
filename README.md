@@ -2,7 +2,6 @@
 
 ## Description
 
-here is some test text.
 
 It's a list of some movies.  You can click on a poster to learn more about that movie.
 Don't like those movies?  Just add your own!
@@ -10,7 +9,7 @@ Don't like those movies?  Just add your own!
 
 ## Prerequisites/Installation
 
-Just "npm install", you should be good to go.  That is, as long as you remember to set up two terminals to enter "npm run server" and "npm run client".  Having a database where you run the SQL commands found in "database/database.sql" is key to utilizing this app too.  Be sure to name your database "saga_movies_weekend".  You won't have access to any of the movies I added, sorry.   But hey, you can probably add any number of your own.  What are the chances we liked the same movies anyway?
+Just "npm install", you should be good to go.  That is, as long as you remember to set up two terminals to enter "npm run server" and "npm run client".  Having a database where you run the SQL commands found in "database/database.sql" is key to utilizing this app too.  Be sure to name your database "MovieList".  You won't have access to any of the movies I added, sorry.   But hey, you can probably add any number of your own.  What are the chances we liked the same movies anyway?
 
 
 ## Usage
