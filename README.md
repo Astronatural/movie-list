@@ -2,6 +2,8 @@
 
 ## Description
 
+here is some test text.
+
 It's a list of some movies.  You can click on a poster to learn more about that movie.
 Don't like those movies?  Just add your own!
 
