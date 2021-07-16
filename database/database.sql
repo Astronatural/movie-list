@@ -1,4 +1,5 @@
--- CREATE DATABASE "MovieList"
+-- CREATE DATABASE "MovieList"   <-- the first thing you will want to do.
+-- then copy the data below into Postico to create the necessary tables.
 
 
 CREATE TABLE "movies" (
@@ -17,7 +18,6 @@ CREATE TABLE "genres" (
 
 -- JUNCTION TABLE
 -- Movies can have multiple genres and each genre can be applied to multiple movies
--- This is many-to-many!
 CREATE TABLE "movies_genres" (
   "id" SERIAL PRIMARY KEY,
   "movie_id" INT REFERENCES "movies" NOT NULL,

@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool')
 
 
-// add Query? to get genres from selected movie.
+// GET genres from selected movie.
 router.get(`/:id`, (req, res) => {
     console.log(req.params.id);
     const movieId = req.params.id

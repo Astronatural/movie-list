@@ -51,7 +51,6 @@ function* fetchDetailGenres(action) {
     try {
         const genDets = yield axios.get(`/api/detail/${action.payload}`)
         console.log('detail genres:', genDets.data);  // 
-        //yield put({ type: 'GET_DETAILS', payload: action.payload });
         yield put({ type: 'GET_DETAILS', payload: genDets.data });
     } catch {
         console.log('get all error');
@@ -136,7 +135,6 @@ const storeInstance = createStore(
         details,
         genreDetails
     }),
-    // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
 

@@ -4,8 +4,6 @@ import { useHistory } from 'react-router-dom';
 
 
 function MovieDetails() {
-    // the plan here is that we will have two GETs; one to get the movie details(by Id).
-    // and another to get the genreDetails (by movie Id).
 
     const history = useHistory();
     const reduxStore = useSelector(store => store);

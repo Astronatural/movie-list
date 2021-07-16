@@ -1,9 +1,3 @@
-/**
-* You'll need to use environment variables in order to deploy your
-* pg-pool configuration to Heroku.
-* It will look something like this:
-**/
-
 const pg = require('pg');
 const url = require('url');
 let config = {};
@@ -21,12 +15,11 @@ if (process.env.DATABASE_URL) {
         port: params.port,
         database: params.pathname.split('/')[1],
         ssl: { rejectUnauthorized: false },
-        max: 10, // max number of clients in the pool
-        idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+        max: 10, 
+        idleTimeoutMillis: 30000,
     };
 
 } else {
-    // only change the things on the right side of the ||
     config = {
         user: process.env.PG_USER || null, //env var: PGUSER
         password: process.env.DATABASE_SECRET || null, //env var: PGPASSWORD

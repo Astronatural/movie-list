@@ -6,9 +6,6 @@ import './MovieList.css';
 
 function MovieList() {
 
-    // TODO wrap that image in a link to the movie details page.
-    // it should also grab that related ID so we can GET the details from the DB.
-
     const history = useHistory();
 
     const dispatch = useDispatch();
